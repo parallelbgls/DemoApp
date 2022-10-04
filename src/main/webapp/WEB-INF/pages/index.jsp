@@ -163,7 +163,7 @@
           dataType: 'text',
           success: function (data, textStatus, xhr) {
             console.log(data);
-            $("#main-title").innerText = data;
+            $("#main-title").text(data);
           },
           error: function (xhr, textStatus, errorThrown) {
             console.log('Error in title operation');

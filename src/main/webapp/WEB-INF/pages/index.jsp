@@ -34,7 +34,7 @@
 <body role="document">
   <div class="container theme-showcase" role="main">
     <div class="jumbotron">
-      <h1>A Sample web application:</h1>
+      <h1 id="main-title">A sample web app</h1>
       <p><i>Why can't application deployment be soooooo easy?</i></p>
     </div>
     <div class="page-header">
@@ -155,5 +155,21 @@
   </div>
   <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+        $.ajax({
+          url: '/api/title',
+          type: 'GET',
+          dataType: 'text',
+          success: function (data, textStatus, xhr) {
+            console.log(data);
+            $("#main-title").innerText = data;
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.log('Error in title operation');
+          }
+        });
+    });
+  </script>
 </body>
 </html>
